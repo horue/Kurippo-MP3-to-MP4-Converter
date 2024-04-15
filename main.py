@@ -1,15 +1,14 @@
 import moviepy.editor as mp
+import easygui
 
 
-def converter(nome):
-    audio_path = r"D:\Users\Eu\Music\MEmu Music\Teardrop.mp3"
-    image = r"D:\Users\Eu\Music\MEmu Music\capabrz.png"
+def converter(nome, audioPath, imagePath):
     output_path = fr"c:\Users\jorge\Documents\{nome}.mp4"
 
 
 
 
-    audio = mp.AudioFileClip(audio_path)
+    audio = mp.AudioFileClip(audioPath)
 
 
 
@@ -18,7 +17,7 @@ def converter(nome):
     video = mp.VideoClip(duration=video_duration)
 
 
-    image_final = mp.ImageClip(image)
+    image_final = mp.ImageClip(imagePath)
 
 
     final_video = video.set_audio(audio).set_videoclip(image_final)
@@ -28,5 +27,7 @@ def converter(nome):
 
 
 
+audioPath = easygui.fileopenbox()
+imagePath = easygui.fileopenbox()
 nome = input('Qual o nome do vídeo?')
-converter(nome)
+converter(nome, audioPath, imagePath)
