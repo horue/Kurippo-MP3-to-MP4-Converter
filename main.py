@@ -1,24 +1,32 @@
 import moviepy.editor as mp
 
 
-
-audio_path = r"D:\Users\Eu\Music\MEmu Music\Teardrop.mp3"
-
-audio = mp.AudioFileClip(audio_path)
-
-image = r"D:\Users\Eu\Music\MEmu Music\capabrz.png"
+def converter(nome):
+    audio_path = r"D:\Users\Eu\Music\MEmu Music\Teardrop.mp3"
+    image = r"D:\Users\Eu\Music\MEmu Music\capabrz.png"
+    output_path = fr"c:\Users\jorge\Documents\{nome}.mp4"
 
 
-video_duration = audio.duration
-video = mp.VideoClip(duration=video_duration)
-video.duration = video_duration
 
 
-image_final = mp.ImageClip(image) .set_duration(video_duration)
+    audio = mp.AudioFileClip(audio_path)
 
 
-final_video = video.set_audio(audio).set_videoclip(image_final)
+
+    video_duration = audio.duration
+
+    video = mp.VideoClip(duration=video_duration)
 
 
-output_path = r"D:\Users\Eu\Music\MEmu Music\ga.mp4"
-final_video.write_videofile(output_path) 
+    image_final = mp.ImageClip(image)
+
+
+    final_video = video.set_audio(audio).set_videoclip(image_final)
+
+
+    final_video.write_videofile(output_path) 
+
+
+
+nome = input('Qual o nome do vídeo?')
+converter(nome)
