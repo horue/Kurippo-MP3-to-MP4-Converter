@@ -2,7 +2,11 @@ import moviepy.editor as mp
 import easygui
 
 
-def converter(nome, audioPath, imagePath):
+def converter(audioPath, imagePath):
+
+
+
+    nome = easygui.enterbox('Qual o nome do vídeo? ')
     output_path = fr"c:\Users\jorge\Documents\{nome}.mp4"
 
 
@@ -29,5 +33,4 @@ def converter(nome, audioPath, imagePath):
 
 audioPath = easygui.fileopenbox()
 imagePath = easygui.fileopenbox()
-nome = input('Qual o nome do vídeo?')
-converter(nome, audioPath, imagePath)
+converter(audioPath, imagePath)
