@@ -8,12 +8,10 @@ def converter(audioPath, imagePath):
 
 
     audio = mp.AudioFileClip(audioPath, fps=44100)
+    video = mp.VideoFileClip(imagePath)
 
 
     video_duration = audio.duration
-    video = mp.VideoFileClip(audioPath).set_duration(video_duration)
-
-
 
 
 
@@ -22,10 +20,10 @@ def converter(audioPath, imagePath):
     image_final = mp.ImageClip(imagePath).set_duration(video_duration)
 
 
-    final_video = video.set_audio(audio).set_videoclip(image_final)
+    final_video = video.set_audio(audio).set_image(image_final)
 
 
-    final_video.write_videofile(outputPath, fps=30) 
+    final_video.write_videofile(outputPath) 
 
 
 
