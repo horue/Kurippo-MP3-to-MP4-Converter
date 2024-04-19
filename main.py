@@ -14,12 +14,6 @@ def converter(audioPath, imagePath):
     video_duration = audio.duration
 
 
-
-
-
-    image_final = mp.ImageClip(imagePath).set_duration(video_duration)
-
-
     final_video = video.set_audio(audio).set_duration(video_duration)
 
 
