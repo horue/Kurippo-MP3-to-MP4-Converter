@@ -13,6 +13,9 @@ def initial(root):
     b1 = tk.Button(root, text='Select Image',command=lambda:filedialog.askopenfile())
     b1.pack()
 
+    b2 = tk.Button(root, text='Select Sound',command=lambda:filedialog.askopenfile())
+    b2.pack()
+
 
 
 def main():
