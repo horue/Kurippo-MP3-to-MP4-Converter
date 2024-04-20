@@ -1,10 +1,14 @@
 import moviepy.editor as mp
 import easygui
+import os
 
 
 def converter(audioPath, imagePath):
-    nome = easygui.enterbox('Qual o nome do vídeo? ')
-    outputPath = fr"c:\Users\jorge\Documents\{nome}.mp4"
+    nome = str(os.path.basename(audioPath))
+    outputPath = os.path.join(os.path.expanduser("~"), "Documents\\MP3 to MP4 Converter\\Converted Videos")
+    if not os.path.exists(outputPath):
+        os.makedirs(outputPath) 
+
 
 
     audio = mp.AudioFileClip(audioPath, fps=44100)
