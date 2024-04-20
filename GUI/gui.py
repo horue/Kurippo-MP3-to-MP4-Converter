@@ -4,9 +4,6 @@ import PIL
 import os 
 import moviepy.editor as mp
 
-outputPath = os.path.join(os.path.expanduser("~"), "Documents\\MP3 to MP4 Converter\\Converted Videos")
-if not os.path.exists(outputPath):
-    os.makedirs(outputPath) 
 
 def run():
     outputPath = os.path.join(os.path.expanduser("~"), "Documents\\MP3 to MP4 Converter\\Converted Videos")
