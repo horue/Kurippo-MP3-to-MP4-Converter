@@ -26,6 +26,6 @@ def converter(audioPath, imagePath):
 
 
 
-audioPath = easygui.fileopenbox(msg="Select Audio",title='Audio', filetypes=audio_types)
-imagePath = easygui.fileopenbox(msg="Select Image",title='Image', filetypes=image_types)
+audioPath = easygui.fileopenbox(msg="Select Audio",title='Audio', default='*.mp3', filetypes=audio_types)
+imagePath = easygui.fileopenbox(msg="Select Image",title='Image', default='*.jpg', filetypes=image_types)
 converter(audioPath, imagePath)
