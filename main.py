@@ -5,11 +5,9 @@ import os
 
 def converter(audioPath, imagePath):
     nome = str(os.path.basename(audioPath))
-    outputPath = os.path.join(os.path.expanduser("~"), "Documents\\MP3 to MP4 Converter\\Converted Videos")
-    if not os.path.exists(outputPath):
-        os.makedirs(outputPath) 
-
-
+    name = os.path.splitext(nome)[0]
+    
+    outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
 
     audio = mp.AudioFileClip(audioPath, fps=44100)
     video = mp.VideoFileClip(imagePath)
