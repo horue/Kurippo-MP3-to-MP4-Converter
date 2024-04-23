@@ -2,11 +2,14 @@ import moviepy.editor as mp
 import easygui
 import os
 
+image_types = ['*.jpg', '*.jpeg']
+audio_types = ['*.mp3']
+
 
 def converter(audioPath, imagePath):
     nome = str(os.path.basename(audioPath))
     name = os.path.splitext(nome)[0]
-    
+
     outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
 
     audio = mp.AudioFileClip(audioPath, fps=44100)
@@ -23,6 +26,6 @@ def converter(audioPath, imagePath):
 
 
 
-audioPath = easygui.fileopenbox()
-imagePath = easygui.fileopenbox()
+audioPath = easygui.fileopenbox(msg="Select Audio",title='Audio', filetypes=audio_types)
+imagePath = easygui.fileopenbox(msg="Select Image",title='Image', filetypes=image_types)
 converter(audioPath, imagePath)
