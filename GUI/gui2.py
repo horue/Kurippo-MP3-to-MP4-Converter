@@ -3,6 +3,8 @@ import easygui as eg
 import PIL
 import os 
 import moviepy.editor as mp
+from CTkMessagebox import CTkMessagebox
+
 
 
 
@@ -20,22 +22,25 @@ def open_sound():
 
 
 def run():
-    nome = str(os.path.basename(sound))
-    name = os.path.splitext(nome)[0]
+    try:
+        nome = str(os.path.basename(sound))
+        name = os.path.splitext(nome)[0]
 
-    outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
+        outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
 
-    audio = mp.AudioFileClip(str(sound), fps=44100)
-    video = mp.VideoFileClip(str(image))
-
-
-    video_duration = audio.duration
+        audio = mp.AudioFileClip(str(sound), fps=44100)
+        video = mp.VideoFileClip(str(image))
 
 
-    final_video = video.set_audio(audio).set_duration(video_duration)
+        video_duration = audio.duration
 
 
-    final_video.write_videofile(outputPath, fps=60) 
+        final_video = video.set_audio(audio).set_duration(video_duration)
+
+
+        final_video.write_videofile(outputPath, fps=60)
+    except:
+        CTkMessagebox(message='Nenhum arquivo foi selecionado.')
 
 
 
