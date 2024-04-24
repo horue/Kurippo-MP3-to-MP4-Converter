@@ -5,14 +5,25 @@ import os
 import moviepy.editor as mp
 
 
-def run(b1, b2):
-    nome = str(os.path.basename(str(b2)))
+
+
+def open_image():
+    global image
+    image = filedialog.askopenfile()
+
+def open_sound():
+    global sound
+    sound = filedialog.askopenfile()
+
+
+def run():
+    nome = str(os.path.basename(sound))
     name = os.path.splitext(nome)[0]
 
     outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
 
-    audio = mp.AudioFileClip(str(b2), fps=44100)
-    video = mp.VideoFileClip(str(b1))
+    audio = mp.AudioFileClip(sound, fps=44100)
+    video = mp.VideoFileClip(image)
 
 
     video_duration = audio.duration
@@ -28,13 +39,13 @@ def initial(root):
     t1 = tk.Label(root, text="MP3 to MP4 Converter")
     t1.pack()
 
-    b1 = tk.Button(root, text='Select Image',command=lambda:filedialog.askopenfile())
+    b1 = tk.Button(root, text='Select Image',command=open_image)
     b1.pack()
 
-    b2 = tk.Button(root, text='Select Sound',command=lambda:filedialog.askopenfile())
+    b2 = tk.Button(root, text='Select Sound',command=open_sound)
     b2.pack()
 
-    b3 = tk.Button(root, text='Convert',command=lambda:run(b1, b2))
+    b3 = tk.Button(root, text='Convert',command=lambda:run())
     b3.pack()
 
 
