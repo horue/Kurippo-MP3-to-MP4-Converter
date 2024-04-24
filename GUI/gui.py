@@ -6,14 +6,13 @@ import moviepy.editor as mp
 
 
 def run(b1, b2):
-    outputPath = os.path.join(os.path.expanduser("~"), "Documents\\MP3 to MP4 Converter\\Converted Videos")
-    if not os.path.exists(outputPath):
-        os.makedirs(outputPath) 
+    nome = str(os.path.basename(str(b2)))
+    name = os.path.splitext(nome)[0]
 
-    audio_path = b1.read
-    image_path = b2.read
-    audio = mp.AudioFileClip(audio_path, fps=44100)
-    video = mp.VideoFileClip(image_path)
+    outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
+
+    audio = mp.AudioFileClip(str(b2), fps=44100)
+    video = mp.VideoFileClip(str(b1))
 
 
     video_duration = audio.duration
@@ -24,10 +23,6 @@ def run(b1, b2):
 
     final_video.write_videofile(outputPath, fps=60) 
 
-
-
-
-    pass
 
 def initial(root):
     t1 = tk.Label(root, text="MP3 to MP4 Converter")
