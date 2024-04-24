@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog
+import easygui as eg
 import PIL
 import os 
 import moviepy.editor as mp
@@ -9,11 +9,11 @@ import moviepy.editor as mp
 
 def open_image():
     global image
-    image = filedialog.askopenfile()
+    image = eg.fileopenbox()
 
 def open_sound():
     global sound
-    sound = filedialog.askopenfile()
+    sound = eg.fileopenbox()
 
 
 def run():
@@ -22,8 +22,8 @@ def run():
 
     outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
 
-    audio = mp.AudioFileClip(sound, fps=44100)
-    video = mp.VideoFileClip(image)
+    audio = mp.AudioFileClip(str(sound), fps=44100)
+    video = mp.VideoFileClip(str(image))
 
 
     video_duration = audio.duration
