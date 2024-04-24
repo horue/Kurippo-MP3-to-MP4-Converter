@@ -39,6 +39,7 @@ def run():
 
 
         final_video.write_videofile(outputPath, fps=60)
+        CTkMessagebox(message='Vídeo finalizado com sucesso!')
     except:
         CTkMessagebox(message='Nenhum arquivo foi selecionado.')
 
