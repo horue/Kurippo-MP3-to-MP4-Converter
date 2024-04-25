@@ -44,12 +44,12 @@ def initial(root):
     t1 = ct.CTkLabel(root, text="MP3 to MP4 Converter")
     t1.pack(padx=15,pady=15)
 
-    path = 'ph.jpg'
     try:
         ph = ct.CTkImage(light_image=Image.open(image), dark_image=Image.open(image), size=(100, 100))
         i1 = ct.CTkLabel(root, text='', image=ph)
         i1.pack()
     except:
+        path = 'ph.jpg'
         ph = ct.CTkImage(light_image=Image.open(path), dark_image=Image.open(path), size=(100, 100))
         i1 = ct.CTkLabel(root, text='', image=ph)
         i1.pack()
