@@ -1,6 +1,7 @@
 import customtkinter as ct
 import easygui as eg
 import PIL
+from PIL import Image
 import os 
 import moviepy.editor as mp
 from CTkMessagebox import CTkMessagebox
@@ -43,6 +44,16 @@ def initial(root):
     t1 = ct.CTkLabel(root, text="MP3 to MP4 Converter")
     t1.pack(padx=15,pady=15)
 
+    path = 'ph.jpg'
+    try:
+        ph = ct.CTkImage(light_image=Image.open(image), dark_image=Image.open(image), size=(100, 100))
+        i1 = ct.CTkLabel(root, text='', image=ph)
+        i1.pack()
+    except:
+        ph = ct.CTkImage(light_image=Image.open(path), dark_image=Image.open(path), size=(100, 100))
+        i1 = ct.CTkLabel(root, text='', image=ph)
+        i1.pack()
+
     b1 = ct.CTkButton(root, text='Select Image',command=open_image)
     b1.pack(padx=15,pady=5)
 
@@ -58,7 +69,7 @@ def initial(root):
 
 def main():
     root = ct.CTk()
-    root.geometry("600x500")
+    root.geometry("400x250")
     root.title("MP3 to MP4 Converter")
 
     initial(root)
