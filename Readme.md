@@ -1,5 +1,5 @@
 
-## MP3-to-MP4 Converter - README
+## Kurippo - MP3-to-MP4 Converter - README
 
 This Python script is a simple tool for creating YouTube-style videos from MP3 audio files.
 
