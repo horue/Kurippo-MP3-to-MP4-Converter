@@ -1,0 +1,3 @@
+Add file types to easygui open folder
+Add selected image to GUI when selected
+Add progress bar
