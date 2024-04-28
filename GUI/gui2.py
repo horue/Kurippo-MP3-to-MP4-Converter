@@ -6,9 +6,11 @@ import os
 import moviepy.editor as mp
 from CTkMessagebox import CTkMessagebox
 
-def open_image():
+def open_image(root, i1):
     global image
     image = eg.fileopenbox()
+    ph = ct.CTkImage(light_image=Image.open(image), dark_image=Image.open(image), size=(100, 100))
+    i1.configure(image=ph)
 
 def open_sound():
     global sound
@@ -34,6 +36,7 @@ def run():
 
         final_video.write_videofile(outputPath, fps=60)
         CTkMessagebox(title='Aviso', message='Vídeo finalizado com sucesso!', icon='check')
+        os.startfile(outputPath)
     except:
         CTkMessagebox(title='Aviso', message='Nenhum arquivo foi selecionado.', icon='question')
 
@@ -49,12 +52,12 @@ def initial(root):
         i1 = ct.CTkLabel(root, text='', image=ph)
         i1.pack()
     except:
-        path = 'ph.jpg'
+        path = r'Visual\ph.jpg'
         ph = ct.CTkImage(light_image=Image.open(path), dark_image=Image.open(path), size=(100, 100))
         i1 = ct.CTkLabel(root, text='', image=ph)
         i1.pack()
 
-    b1 = ct.CTkButton(root, text='Select Image',command=open_image)
+    b1 = ct.CTkButton(root, text='Select Image',command=lambda:open_image(root, i1))
     b1.pack(padx=15,pady=5)
 
     b2 = ct.CTkButton(root, text='Select Sound',command=open_sound)
@@ -72,10 +75,12 @@ def main():
     root.geometry("400x250")
     root.title("MP3 to MP4 Converter")
 
+    
     initial(root)
     
     root.iconify()
     root.update()
     root.deiconify()
     root.mainloop()
+
 main()
