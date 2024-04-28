@@ -13,9 +13,10 @@ def open_image(i1, t3):
     i1.configure(image=ph)
     t3.configure(text=image)
 
-def open_sound():
+def open_sound(t5):
     global sound
     sound = eg.fileopenbox()
+    t5.configure(text=sound)
 
 
 def run():
@@ -58,10 +59,15 @@ def initial(root):
     i1 = ct.CTkLabel(root, text='', image=ph)
     i1.pack(pady=15)
 
+    t4=ct.CTkLabel(root, text="Selected audio: ")
+    t5=ct.CTkLabel(root, text="None")
+    t4.pack()
+    t5.pack(pady=15)
+
     b1 = ct.CTkButton(root, text='Select Image',command=lambda:open_image(i1, t3))
     b1.pack(pady=5)
 
-    b2 = ct.CTkButton(root, text='Select Sound',command=open_sound)
+    b2 = ct.CTkButton(root, text='Select Audio',command=lambda:open_sound(t5))
     b2.pack(pady=5)
 
     b3 = ct.CTkButton(root, text='Convert',command=lambda:run())
@@ -73,7 +79,7 @@ def initial(root):
 
 def main():
     root = ct.CTk()
-    root.geometry("400x490")
+    root.geometry("400x500")
     root.title("MP3 to MP4 Converter")
 
     
