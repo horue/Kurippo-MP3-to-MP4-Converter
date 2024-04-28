@@ -6,11 +6,12 @@ import os
 import moviepy.editor as mp
 from CTkMessagebox import CTkMessagebox
 
-def open_image(root, i1):
+def open_image(i1, t3):
     global image
     image = eg.fileopenbox()
     ph = ct.CTkImage(light_image=Image.open(image), dark_image=Image.open(image), size=(100, 100))
     i1.configure(image=ph)
+    t3.configure(text=image)
 
 def open_sound():
     global sound
@@ -47,24 +48,24 @@ def initial(root):
     t1 = ct.CTkLabel(root, text="MP3 to MP4 Converter")
     t1.pack(padx=15,pady=15)
 
-    try:
-        ph = ct.CTkImage(light_image=Image.open(image), dark_image=Image.open(image), size=(100, 100))
-        i1 = ct.CTkLabel(root, text='', image=ph)
-        i1.pack()
-    except:
-        path = r'Visual\ph.jpg'
-        ph = ct.CTkImage(light_image=Image.open(path), dark_image=Image.open(path), size=(100, 100))
-        i1 = ct.CTkLabel(root, text='', image=ph)
-        i1.pack()
+    t2 = ct.CTkLabel(root, text="Selected image: ")
+    t3 = ct.CTkLabel(root, text="None")
+    t2.pack(padx=15,pady=15)
+    t3.pack()
 
-    b1 = ct.CTkButton(root, text='Select Image',command=lambda:open_image(root, i1))
-    b1.pack(padx=15,pady=5)
+    path = r'Visual\ph.jpg'
+    ph = ct.CTkImage(light_image=Image.open(path), dark_image=Image.open(path), size=(100, 100))
+    i1 = ct.CTkLabel(root, text='', image=ph)
+    i1.pack(pady=15)
+
+    b1 = ct.CTkButton(root, text='Select Image',command=lambda:open_image(i1, t3))
+    b1.pack(pady=5)
 
     b2 = ct.CTkButton(root, text='Select Sound',command=open_sound)
-    b2.pack(padx=15,pady=5)
+    b2.pack(pady=5)
 
     b3 = ct.CTkButton(root, text='Convert',command=lambda:run())
-    b3.pack(padx=15,pady=15)
+    b3.pack(pady=15)
 
 
 
@@ -72,7 +73,7 @@ def initial(root):
 
 def main():
     root = ct.CTk()
-    root.geometry("400x250")
+    root.geometry("400x490")
     root.title("MP3 to MP4 Converter")
 
     
