@@ -4,7 +4,7 @@ import PIL
 from PIL import Image
 import os 
 import moviepy.editor as mp
-from CTkMessagebox import CTkMessagebox
+from CustomTkinterMessagebox import CTkMessagebox
 
 def open_image(i1, t3):
     global image
@@ -37,10 +37,10 @@ def run():
 
 
         final_video.write_videofile(outputPath, fps=60)
-        CTkMessagebox(title='Aviso', message='Vídeo finalizado com sucesso!', icon='check')
+        CTkMessagebox.messagebox(title='Warning', text='Video converted successfully!')
         os.startfile(outputPath)
     except:
-        CTkMessagebox(title='Aviso', message='Nenhum arquivo foi selecionado.', icon='question')
+        CTkMessagebox.messagebox(title='Warning', text='Please select a sound and/or video\nbefore trying to convert.')
 
 
 
