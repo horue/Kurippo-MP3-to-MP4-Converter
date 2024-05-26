@@ -70,7 +70,7 @@ def multiple(master):
     b1 = ct.CTkButton(master, text='Select Image',command=lambda:open_image(i1, t3))
     b1.pack(pady=5)
 
-    b2 = ct.CTkButton(master, text='Select Folder',command=lambda:open_sound(t5))
+    b2 = ct.CTkButton(master, text='Select Folder',command=lambda:open_folder(t5))
     b2.pack(pady=5)
 
     b3 = ct.CTkButton(master, text='Convert',command=lambda:run())
