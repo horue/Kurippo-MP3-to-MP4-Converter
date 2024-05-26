@@ -73,7 +73,16 @@ def initial(root):
     b3 = ct.CTkButton(root, text='Convert',command=lambda:run())
     b3.pack(pady=15)
 
+def options(root):
+    tabview = ct.CTkTabview(master=root)
+    tabview.pack(padx=20, pady=20)
 
+    tabview.add("tab 1")  # add tab at the end
+    tabview.add("tab 2")  # add tab at the end
+    tabview.set("tab 2")  # set currently visible tab
+
+    button = ct.CTkButton(master=tabview.tab("tab 1"))
+    button.pack(padx=20, pady=20)
 
 
 
@@ -83,7 +92,7 @@ def main():
     root.title("MP3 to MP4 Converter")
 
     
-    initial(root)
+    options(root)
     
     root.iconify()
     root.update()
