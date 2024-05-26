@@ -145,7 +145,7 @@ def options(root):
 
 def main():
     root = ct.CTk()
-    root.geometry("400x500")
+    root.geometry("400x600")
     root.title("MP3 to MP4 Converter")
 
     
