@@ -146,7 +146,7 @@ def options(root):
 def main():
     root = ct.CTk()
     root.geometry("400x600")
-    root.title("MP3 to MP4 Converter")
+    root.title("Kurippo - MP3 to MP4 Converter")
 
     
     options(root)
