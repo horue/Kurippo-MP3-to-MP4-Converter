@@ -45,32 +45,32 @@ def run():
 
 
 
-def initial(root):
-    t1 = ct.CTkLabel(root, text="MP3 to MP4 Converter")
+def initial(master):
+    t1 = ct.CTkLabel(master, text="MP3 to MP4 Converter")
     t1.pack(padx=15,pady=15)
 
-    t2 = ct.CTkLabel(root, text="Selected image: ")
-    t3 = ct.CTkLabel(root, text="None")
+    t2 = ct.CTkLabel(master, text="Selected image: ")
+    t3 = ct.CTkLabel(master, text="None")
     t2.pack(padx=15,pady=15)
     t3.pack()
 
     path = r'Visual\ph.jpg'
     ph = ct.CTkImage(light_image=Image.open(path), dark_image=Image.open(path), size=(100, 100))
-    i1 = ct.CTkLabel(root, text='', image=ph)
+    i1 = ct.CTkLabel(master, text='', image=ph)
     i1.pack(pady=15)
 
-    t4=ct.CTkLabel(root, text="Selected audio: ")
-    t5=ct.CTkLabel(root, text="None")
+    t4=ct.CTkLabel(master, text="Selected audio: ")
+    t5=ct.CTkLabel(master, text="None")
     t4.pack()
     t5.pack(pady=15)
 
-    b1 = ct.CTkButton(root, text='Select Image',command=lambda:open_image(i1, t3))
+    b1 = ct.CTkButton(master, text='Select Image',command=lambda:open_image(i1, t3))
     b1.pack(pady=5)
 
-    b2 = ct.CTkButton(root, text='Select Audio',command=lambda:open_sound(t5))
+    b2 = ct.CTkButton(master, text='Select Audio',command=lambda:open_sound(t5))
     b2.pack(pady=5)
 
-    b3 = ct.CTkButton(root, text='Convert',command=lambda:run())
+    b3 = ct.CTkButton(master, text='Convert',command=lambda:run())
     b3.pack(pady=15)
 
 def options(root):
@@ -81,9 +81,7 @@ def options(root):
     tabview.add("Multiple")
     tabview.set("Single") 
 
-    button = ct.CTkButton(master=tabview.tab("Single"))
-    button.pack(padx=20, pady=20)
-
+    initial(master=tabview.tab("Single"))
 
 
 def main():
