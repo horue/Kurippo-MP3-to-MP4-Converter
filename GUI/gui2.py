@@ -77,11 +77,11 @@ def options(root):
     tabview = ct.CTkTabview(master=root)
     tabview.pack(padx=20, pady=20)
 
-    tabview.add("tab 1")  # add tab at the end
-    tabview.add("tab 2")  # add tab at the end
-    tabview.set("tab 2")  # set currently visible tab
+    tabview.add("Single")
+    tabview.add("Multiple")
+    tabview.set("Single") 
 
-    button = ct.CTkButton(master=tabview.tab("tab 1"))
+    button = ct.CTkButton(master=tabview.tab("Single"))
     button.pack(padx=20, pady=20)
 
 
