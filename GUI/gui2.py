@@ -1,5 +1,6 @@
 import customtkinter as ct
 import easygui as eg
+from tkinter import filedialog
 import PIL
 from PIL import Image
 import os 
@@ -25,8 +26,11 @@ def open_folder(t5):
 
 
 def run_multiple():
-    try:
-        for files in sound:
+        file_list = os.listdir(sound)
+        print(fr'{sound}\{file_list[0]}')
+        for file in file_list:
+            files = os.path.join(sound, file)
+
             nome = str(os.path.basename(files))
             name = os.path.splitext(nome)[0]
 
@@ -43,10 +47,6 @@ def run_multiple():
 
 
             final_video.write_videofile(outputPath, fps=60)
-            CTkMessagebox.messagebox(title='Warning', text='Video converted successfully!')
-            os.startfile(outputPath)
-    except:
-        CTkMessagebox.messagebox(title='Warning', text='Please select a sound and/or video\nbefore trying to convert.')
 
 
 def run():
@@ -98,7 +98,7 @@ def multiple(master):
     b2 = ct.CTkButton(master, text='Select Folder',command=lambda:open_folder(t5))
     b2.pack(pady=5)
 
-    b3 = ct.CTkButton(master, text='Convert',command=lambda:run())
+    b3 = ct.CTkButton(master, text='Convert',command=lambda:run_multiple())
     b3.pack(pady=15)
 
 
