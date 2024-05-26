@@ -24,6 +24,31 @@ def open_folder(t5):
     t5.configure(text=sound)
 
 
+def run_multiple():
+    try:
+        for files in sound:
+            nome = str(os.path.basename(files))
+            name = os.path.splitext(nome)[0]
+
+            outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
+
+            audio = mp.AudioFileClip(str(files), fps=44100)
+            video = mp.VideoFileClip(str(image))
+
+
+            video_duration = audio.duration
+
+
+            final_video = video.set_audio(audio).set_duration(video_duration)
+
+
+            final_video.write_videofile(outputPath, fps=60)
+            CTkMessagebox.messagebox(title='Warning', text='Video converted successfully!')
+            os.startfile(outputPath)
+    except:
+        CTkMessagebox.messagebox(title='Warning', text='Please select a sound and/or video\nbefore trying to convert.')
+
+
 def run():
     try:
         nome = str(os.path.basename(sound))
