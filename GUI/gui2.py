@@ -143,17 +143,23 @@ def options(root):
     multiple(master=tabview.tab("Multiple"))
 
 
+def switch_event(switch_var):
+    ct.set_appearance_mode(switch_var.get())
+
 def main():
     root = ct.CTk()
     root.geometry("400x600")
     root.title("Kurippo - MP3 to MP4 Converter")
     root.resizable(False, False)
     root.iconbitmap(r'Visual\Kurippo_2.ico')
-    ct.set_appearance_mode("Dark")
+    
+    options(root)
 
 
     
-    options(root)
+    switch_var = ct.StringVar(value="Dark")
+    s1 = ct.CTkSwitch(root, text="Change color mode.", command=lambda:switch_event(switch_var), variable=switch_var, onvalue="Dark", offvalue="Light")
+    s1.pack()
     
     root.iconify()
     root.update()
