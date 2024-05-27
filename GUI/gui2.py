@@ -149,6 +149,7 @@ def main():
     root.title("Kurippo - MP3 to MP4 Converter")
     root.resizable(False, False)
     root.iconbitmap(r'Visual\Kurippo_2.ico')
+    ct.set_appearance_mode("Dark")
 
 
     
