@@ -148,7 +148,7 @@ def switch_event(switch_var):
 
 def main():
     root = ct.CTk()
-    root.geometry("400x600")
+    root.geometry("400x630")
     root.title("Kurippo - MP3 to MP4 Converter")
     root.resizable(False, False)
     root.iconbitmap(r'Visual\Kurippo_2.ico')
