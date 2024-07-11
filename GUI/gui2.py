@@ -148,7 +148,7 @@ def switch_event(switch_var):
 
 def main():
     root = ct.CTk()
-    root.geometry("400x630")
+    root.geometry("400x640")
     root.title("Kurippo - MP3 to MP4 Converter")
     root.resizable(False, False)
     root.iconbitmap(r'Visual\Kurippo_2.ico')
@@ -160,6 +160,9 @@ def main():
     switch_var = ct.StringVar(value="Dark")
     s1 = ct.CTkSwitch(root, text="Change color mode.", command=lambda:switch_event(switch_var), variable=switch_var, onvalue="Dark", offvalue="Light")
     s1.pack()
+
+    l1 = ct.CTkLabel(root, text='Version 1.0')
+    l1.pack()
     
     root.iconify()
     root.update()
