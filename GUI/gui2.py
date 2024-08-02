@@ -169,4 +169,5 @@ def main():
     root.deiconify()
     root.mainloop()
 
-main()
+if __name__ == '__main__':
+    main()
