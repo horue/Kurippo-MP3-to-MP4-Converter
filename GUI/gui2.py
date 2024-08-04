@@ -1,8 +1,8 @@
 import customtkinter as ct
 import easygui as eg
-from tkinter import filedialog
+from customtkinter import filedialog
 import PIL
-from PIL import Image
+from PIL import Image, ImageTk
 import os 
 import moviepy.editor as mp
 from CustomTkinterMessagebox import CTkMessagebox
@@ -16,12 +16,12 @@ def open_image(i1, t3):
 
 def open_sound(t5):
     global sound
-    sound = eg.fileopenbox()
+    sound = filedialog.askopenfilename()
     t5.configure(text=sound)
 
 def open_folder(t5):
     global sound
-    sound = eg.diropenbox()
+    sound = filedialog.askdirectory()
     t5.configure(text=sound)
 
 
@@ -148,21 +148,21 @@ def switch_event(switch_var):
 
 def main():
     root = ct.CTk()
-    root.geometry("400x640")
+    root.geometry("400x625")
     root.title("Kurippo - MP3 to MP4 Converter")
     root.resizable(False, False)
     root.iconbitmap(r'Visual\Kurippo_2.ico')
     
     options(root)
 
-
     
     switch_var = ct.StringVar(value="Dark")
-    s1 = ct.CTkSwitch(root, text="Change color mode.", command=lambda:switch_event(switch_var), variable=switch_var, onvalue="Dark", offvalue="Light")
+    settings_icon = ct.CTkImage(Image.open(r'Visual\5166607.png'))
+    s1 = ct.CTkButton(root,text='', image=settings_icon, command=lambda:switch_event(switch_var), width=20, fg_color='transparent', hover_color='none')
     s1.pack()
 
-    l1 = ct.CTkLabel(root, text='Version 1.0')
-    l1.pack()
+    #l1 = ct.CTkLabel(root, text='Version 1.0')
+    #l1.pack()
     
     root.iconify()
     root.update()
