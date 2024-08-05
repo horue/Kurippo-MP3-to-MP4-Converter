@@ -7,6 +7,7 @@ import os
 import moviepy.editor as mp
 from CustomTkinterMessagebox import CTkMessagebox
 from preferences import *
+from read_krip import *
 
 def open_image(i1, t3):
     global image
@@ -144,20 +145,17 @@ def options(root):
     multiple(master=tabview.tab("Multiple"))
 
 
-def switch_event(switch_var):
-    ct.set_appearance_mode(switch_var.get())
-
 def main():
     root = ct.CTk()
     root.geometry("400x625")
     root.title("Kurippo - MP3 to MP4 Converter")
     root.resizable(False, False)
     root.iconbitmap(r'Visual\Kurippo_2.ico')
+    ct.set_appearance_mode(get_theme())
     
     options(root)
 
     
-    switch_var = ct.StringVar(value="Dark")
     settings_icon = ct.CTkImage(Image.open(r'Visual\5166607.png'))
     s1 = ct.CTkButton(root,text='', image=settings_icon, command=lambda:toplevel.preferences(), width=20, fg_color='transparent')
     s1.pack()
