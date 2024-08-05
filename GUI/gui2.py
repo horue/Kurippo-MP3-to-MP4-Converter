@@ -6,6 +6,7 @@ from PIL import Image, ImageTk
 import os 
 import moviepy.editor as mp
 from CustomTkinterMessagebox import CTkMessagebox
+from preferences import *
 
 def open_image(i1, t3):
     global image
@@ -158,7 +159,7 @@ def main():
     
     switch_var = ct.StringVar(value="Dark")
     settings_icon = ct.CTkImage(Image.open(r'Visual\5166607.png'))
-    s1 = ct.CTkButton(root,text='', image=settings_icon, command=lambda:switch_event(switch_var), width=20, fg_color='transparent', hover_color='none')
+    s1 = ct.CTkButton(root,text='', image=settings_icon, command=lambda:toplevel.preferences(), width=20, fg_color='transparent')
     s1.pack()
 
     #l1 = ct.CTkLabel(root, text='Version 1.0')
