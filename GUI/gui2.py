@@ -36,7 +36,7 @@ def run_multiple():
             nome = str(os.path.basename(files))
             name = os.path.splitext(nome)[0]
 
-            outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
+            outputPath = os.path.join(os.path.expanduser("~"), fr"{get_path()}\{name}.mp4")
 
             audio = mp.AudioFileClip(str(files), fps=44100)
             video = mp.VideoFileClip(str(image))
@@ -56,7 +56,7 @@ def run():
         nome = str(os.path.basename(sound))
         name = os.path.splitext(nome)[0]
 
-        outputPath = os.path.join(os.path.expanduser("~"), fr"Documents\{name}.mp4")
+        outputPath = os.path.join(os.path.expanduser("~"), fr"{get_path()}\{name}.mp4")
 
         audio = mp.AudioFileClip(str(sound), fps=44100)
         video = mp.VideoFileClip(str(image))
