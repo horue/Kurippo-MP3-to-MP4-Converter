@@ -13,9 +13,11 @@ class toplevel():
         save_path(p=path)
         save_theme(t=theme)
         
-    def select_path():
+    def select_path(l1):
         global np
         np = filedialog.askdirectory()
+        l1.configure(text=f'Conversion destiny: {np}')
+
 
 
 
@@ -30,7 +32,7 @@ class toplevel():
         l1 = ct.CTkLabel(tl, text=f'Conversion destiny: {get_path()}')
         l1.pack()
 
-        b1 = ct.CTkButton(tl, text='Edit', command=lambda:toplevel.select_path())
+        b1 = ct.CTkButton(tl, text='Edit', command=lambda:toplevel.select_path(l1))
         b1.pack()
 
         
