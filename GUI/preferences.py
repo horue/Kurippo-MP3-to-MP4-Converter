@@ -21,7 +21,7 @@ class toplevel():
 
 
 
-    def preferences(title='Edit preferences', size='500x400'):
+    def preferences(title='Edit preferences', size='500x460'):
         tl = ct.CTkToplevel()
         tl.geometry(size)
         tl.title(title)
@@ -48,6 +48,8 @@ class toplevel():
         b4 = ct.CTkButton(tl, text='Apply')
         b4.pack()
 
+        l3 = ct.CTkLabel(l1, text='Version 1.1')
+        l3.pack()
 
         for child in tl.winfo_children():
             child.pack_configure(padx=10, pady=15)
